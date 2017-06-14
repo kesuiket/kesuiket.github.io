@@ -28,7 +28,7 @@ Google 構造化データテストツールで正しく認識されるかどう�
 </script>
 ```
 
-ただし, 既存 `<script type="application/ld+json">` に追加すると読み込んでもらえrない
+ただし, 既存の `<script type="application/ld+json">` に追加すると認識してもらえなかった
 
 ```html
 <script type="application/ld+json"></script>
