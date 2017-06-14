@@ -7,11 +7,13 @@
   </head>
   <body>
     JSON-LD の読み込みテスト(ajax)
-    
-    <script type="application/ld+json"></script>
+
     <script>
-      var script = document.querySelector('script[type="application/ld+json"]')
-      $.ajax('data/jsonld.js').then(function(res) {
+      $.ajax({
+        url: 'data/jsonld.js',
+        type: 'get',
+        dataType: 'json',
+      }).then(function(res) {
         var s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = res
