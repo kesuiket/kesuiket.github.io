@@ -6,12 +6,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    JSON-LD の読み込みテスト（script/.js）
+    JSON-LD の読み込みテスト(ajax)
     
+    <script type="application/ld+json"></script>
     <script>
+      var script = document.querySelector('script[type="application/ld+json"]')
       $.ajax('data/jsonld.js').then(function(res) {
-        console.log(res)
+        console.log(res, typeof res)
+        script.textContent = res
       })
     </script>
+
   </body>
 </html>
