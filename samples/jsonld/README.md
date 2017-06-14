@@ -1,10 +1,19 @@
 # JSON-LDの外部ファイル読み込み
+Google 構造化データテストツールで正しく認識されるかどうかをテスト
 
 ## [OK] インライン
 
+```html
+<script type="application/ld+json">
+{
+  ...
+}
+</script>
+```
+
 ## [OK] Ajax 読み込み後差し込む
 
-```
+```html
 <script>
   $.ajax({
     url: 'path/to/data',
@@ -21,7 +30,7 @@
 
 ただし, 既存 `<script type="application/ld+json">` に追加すると読み込んでもらえrない
 
-```
+```html
 <script type="application/ld+json"></script>
 <script>
   var s = document.querySelector('[type="application/ld+json"]')
@@ -34,5 +43,16 @@
 </script>
 ```
 
-## [NG] `<script type="application/ld+json" src="data/jsonld.{js,json,jsonld}"></script>`
-## [NG] `<link href="data/jsonld.{js,json,jsonld}" rel="alternate" type="application/ld+json">`
+## [NG] `<script>` で外部ファイルを読み込む
+拡張子がなんであってもだめなものはだめ
+
+```html
+<script type="application/ld+json" src="data/jsonld.{js, json, jsonld}"></script>
+```
+
+## [NG] `<link>` で外部ファイルを読み込む
+これも拡張子がなんであってもだめなものはだめ
+
+```html
+<link href="data/jsonld.{js,json,jsonld}" rel="alternate" type="application/ld+json">
+```
