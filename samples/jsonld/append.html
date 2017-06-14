@@ -12,10 +12,15 @@
     <script>
       var script = document.querySelector('script[type="application/ld+json"]')
       $.ajax('data/jsonld.js').then(function(res) {
-        console.log(res, typeof res)
-        script.textContent = res
+        if (typeof res !== 'string') {
+          res = JSON.stringify(res)
+        }
+
+        var s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = res
+        document.body.appendChild(s)
       })
     </script>
-
   </body>
 </html>
