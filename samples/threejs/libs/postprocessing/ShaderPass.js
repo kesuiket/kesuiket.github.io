@@ -5,8 +5,6 @@
 THREE.ShaderPass = function ( shader, textureID ) {
 
 	THREE.Pass.call( this );
-	
-	console.log('ShaderPass.js', this)
 
 	this.textureID = ( textureID !== undefined ) ? textureID : "tDiffuse";
 
