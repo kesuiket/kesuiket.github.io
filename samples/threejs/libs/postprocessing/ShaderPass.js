@@ -5,6 +5,8 @@
 THREE.ShaderPass = function ( shader, textureID ) {
 
 	THREE.Pass.call( this );
+	
+	console.log('ShaderPass.js', this)
 
 	this.textureID = ( textureID !== undefined ) ? textureID : "tDiffuse";
 
@@ -34,8 +36,6 @@ THREE.ShaderPass = function ( shader, textureID ) {
 
 	this.quad = new THREE.Mesh( new THREE.PlaneBufferGeometry( 2, 2 ), null );
 	this.scene.add( this.quad );
-	
-	console.log(this)
 
 };
 
