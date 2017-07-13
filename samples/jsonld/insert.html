@@ -10,6 +10,16 @@
     JSON-LD の読み込みテスト(ajax)
 
     <script>
+      window.fetch('data/jsonld.json').then((res) => {
+        return res.json()
+      }).then((json) => {
+        var s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = JSON.stringify(json)
+        document.body.appendChild(s)
+      })
+
+      /*
       $.ajax({
         url: 'data/jsonld.json',
         type: 'get',
@@ -20,6 +30,7 @@
         s.textContent = JSON.stringify(res)
         document.body.appendChild(s)
       })
+      */
     </script>
   </body>
 </html>
