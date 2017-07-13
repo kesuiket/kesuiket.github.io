@@ -10,21 +10,16 @@
     JSON-LD の読み込みテスト(ajax)
 
     <script>
-      const includeJsonLd = (data, from) => {
-        const s = document.createElement('script')
-        s.type = 'application/ld+json'
-        s.textContent = JSON.stringify(data)
-        s.id = from
-        document.body.appendChild(s)
-        console.log(data, from)
-      }
-
       $.ajax({
         url: 'data/jsonld.json',
         type: 'get',
         dataType: 'json',
       }).then(function(json) {
-        includeJsonLd(json, 'ajax')
+        const s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = JSON.stringify(json)
+        s.id = from
+        document.body.appendChild(s)  
       })
     </script>
   </body>
