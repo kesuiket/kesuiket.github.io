@@ -12,7 +12,7 @@
     <script>
       window.fetch('data/jsonld.json').then((res) => {
         console.log('fetch1', res)
-        return res.text()
+        return res.json()
       }).then((json) => {
         const s = document.createElement('script')
         s.type = 'application/ld+json'
