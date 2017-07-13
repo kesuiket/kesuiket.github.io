@@ -17,9 +17,7 @@
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
         document.body.appendChild(s)
-        console.log(3)
         console.log(xhr.getAllResponseHeaders())
-        console.log(s)
       }
       
       xhr.open('GET', 'data/jsonld.json', true)
@@ -27,7 +25,6 @@
       xhr.setRequestHeader('Accept', 'application/ld+json, application/json, text/javascript, */*; q=0.01');
       xhr.withCredentials = false
       xhr.send(null)
-      console.log(2)
     </script>
   </body>
 </html>
