@@ -21,11 +21,20 @@
         ref.parentNode.insertBefore(s, ref)
       }
       
-      xhr.open('GET', 'data/jsonld.json', true)
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
-      xhr.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
-      xhr.overrideMimeType('application/json')
-      xhr.send(null)
+      //xhr.open('GET', 'data/jsonld.json', true)
+      //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+      //xhr.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
+      //xhr.overrideMimeType('application/json')
+      //xhr.send(null)
+      
+      const s = document.createElement('script')
+      s.type = 'application/ld+json'
+      s.textContent = JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Wicked Pizza"
+      })
+      document.body.appendChild(s)
     </script>
   </body>
 </html>
