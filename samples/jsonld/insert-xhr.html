@@ -16,7 +16,6 @@
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
         document.body.appendChild(s)
-        console.log(xhr.getAllResponseHeaders())
       }
       xhr.open('GET', 'data/jsonld.json', true)
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
