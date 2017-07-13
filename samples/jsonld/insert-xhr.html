@@ -10,31 +10,23 @@
     JSON-LD の読み込みテスト(ajax)
 
     <script>
+      console.log(1)
       const xhr = new XMLHttpRequest()      
       xhr.onload = () => {
         const json = JSON.parse(xhr.responseText)
         const s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
-        
-        const ref = document.querySelector('script')
-        ref.parentNode.insertBefore(s, ref)
+        document.body.appendChild(s)
+        console.log(3)
       }
       
-      //xhr.open('GET', 'data/jsonld.json', true)
-      //xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
-      //xhr.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
-      //xhr.overrideMimeType('application/json')
-      //xhr.send(null)
-      
-      const s = document.createElement('script')
-      s.type = 'application/ld+json'
-      s.textContent = JSON.stringify({
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "Wicked Pizza"
-      })
-      document.body.appendChild(s)
+      xhr.open('GET', 'data/jsonld.json', true)
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+      xhr.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
+      xhr.overrideMimeType('application/json')
+      xhr.send(null)
+      console.log(2)
     </script>
   </body>
 </html>
