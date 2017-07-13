@@ -10,16 +10,15 @@
     JSON-LD の読み込みテスト(ajax)
 
     <script>
-      const xhr = new XMLHttpRequest()
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          const json = JSON.parse(xhr.responseText)
-          const s = document.createElement('script')
-          s.type = 'application/ld+json'
-          s.textContent = JSON.stringify(json)
-          document.body.appendChild(s)
-        }
+      const xhr = new XMLHttpRequest()      
+      xhr.onload = () => {
+        const json = JSON.parse(xhr.responseText)
+        const s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = JSON.stringify(json)
+        document.body.appendChild(s)
       }
+      
       xhr.open('GET', 'data/jsonld.json', true)
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
       xhr.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
