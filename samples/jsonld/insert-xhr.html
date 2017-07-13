@@ -16,7 +16,10 @@
         const s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
-        document.body.appendChild(s)
+        
+        window.setTimeout(() => {
+          document.body.appendChild(s)
+        })
       }
       
       xhr.open('GET', 'data/jsonld.json', true)
