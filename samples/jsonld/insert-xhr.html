@@ -26,9 +26,10 @@
           includeJsonLd(json, 'xhr')
         }
       }
-      xhr.open('GET', 'data/jsonld.json', true)
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+      xhr.setRequestHeader('Accept', 'application/json, text/javascript');
       xhr.overrideMimeType('application/json, text/javascript')
+      xhr.open('GET', 'data/jsonld.json', true)
       xhr.send(null)
     </script>
   </body>
