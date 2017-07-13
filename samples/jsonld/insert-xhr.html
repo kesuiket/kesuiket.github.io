@@ -17,9 +17,8 @@
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
         
-        window.setTimeout(() => {
-          document.body.appendChild(s)
-        })
+        const ref = document.querySelector('script')
+        ref.parentNode.insertBefore(s, ref)
       }
       
       xhr.open('GET', 'data/jsonld.json', true)
