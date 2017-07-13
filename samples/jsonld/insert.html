@@ -23,16 +23,31 @@
       })
       */
 
+      const includeJsonLd = (data, from) => {
+        const s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = JSON.stringify(data)
+        s.id = from
+        document.body.appendChild(s)
+        console.log(data, from)
+      }
+
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          const json = JSON.parse(xhr.responseText)
+          includeJsonLd(json, 'xhr')
+        }
+      }
+      xhr.open('data/jsonld.json', false)
+      xhr.send()
+      
       $.ajax({
         url: 'data/jsonld.json',
         type: 'get',
         dataType: 'json',
       }).then(function(json) {
-        var s = document.createElement('script')
-        s.type = 'application/ld+json'
-        s.textContent = JSON.stringify(json)
-        document.body.appendChild(s)
-        console.log('ajax', typeof s.textContent, s.textContent)
+        includeJsonLd(json, 'ajax')
       })
     </script>
   </body>
