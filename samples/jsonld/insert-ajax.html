@@ -15,13 +15,13 @@
         url: 'data/jsonld.json',
         type: 'get',
         dataType: 'json',
-      }).then(function(json, a, b, c) {
+      }).then(function(json, xhr) {
         const s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
         document.body.appendChild(s)  
         console.log(3)
-        console.log(a, b, c)
+        console.log(xhr.getAllResponseHeaders())
         console.log(s)
       })
       console.log(2)
