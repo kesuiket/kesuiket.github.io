@@ -11,11 +11,7 @@
 
     <script>
       const includeJsonLd = (data, from) => {
-        const s = document.createElement('script')
-        s.type = 'application/ld+json'
-        s.textContent = JSON.stringify(data)
-        s.id = from
-        document.body.appendChild(s)
+
         console.log(data, from)
       }
 
@@ -23,7 +19,10 @@
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           const json = JSON.parse(xhr.responseText)
-          includeJsonLd(json, 'xhr')
+          const s = document.createElement('script')
+          s.type = 'application/ld+json'
+          s.textContent = JSON.stringify(json)
+          document.body.appendChild(s)
         }
       }
       xhr.open('GET', 'data/jsonld.json', true)
