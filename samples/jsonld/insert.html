@@ -17,8 +17,8 @@
         var s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = json
-        document.head.appendChild(s)
-        console.log('fetch2', s.textContent)
+        document.body.appendChild(s)
+        console.log('fetch2', typeof s.textContent, s.textContent)
       })
 
       $.ajax({
@@ -30,7 +30,7 @@
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
         document.body.appendChild(s)
-        console.log('ajax', s.textContent)
+        console.log('ajax', typeof s.textContent, s.textContent)
       })
     </script>
   </body>
