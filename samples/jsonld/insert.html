@@ -11,7 +11,7 @@
 
     <script>
       window.fetch('data/jsonld.json').then((res) => {
-        console.log('fetch1', res)
+        console.log('fetch1', res.text())
         return res.json()
       }).then((json) => {
         var s = document.createElement('script')
