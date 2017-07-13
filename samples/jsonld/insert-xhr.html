@@ -21,7 +21,7 @@
         console.log(s)
       }
       
-      xhr.open('GET', 'data/jsonld.json', false)
+      xhr.open('GET', 'data/jsonld.json', true)
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
       xhr.setRequestHeader('Accept', 'application/ld+json, application/json, text/javascript, */*; q=0.01');
       xhr.send(null)
