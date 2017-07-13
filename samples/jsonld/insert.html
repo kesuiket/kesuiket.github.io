@@ -34,12 +34,13 @@
 
       const xhr = new XMLHttpRequest()
       xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
           const json = JSON.parse(xhr.responseText)
           includeJsonLd(json, 'xhr')
         }
       }
       xhr.open('GET', 'data/jsonld.json', true)
+      xhr.send(null)
 
       /*
       $.ajax({
