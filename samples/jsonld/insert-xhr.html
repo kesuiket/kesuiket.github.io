@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://kesuiket.github.io/samples/jsonld/insert.html">
+    <title>JSON-LD の読み込みテスト（script/.js）</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    JSON-LD の読み込みテスト(ajax)
+
+    <script>
+      const includeJsonLd = (data, from) => {
+        const s = document.createElement('script')
+        s.type = 'application/ld+json'
+        s.textContent = JSON.stringify(data)
+        s.id = from
+        document.body.appendChild(s)
+        console.log(data, from)
+      }
+
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const json = JSON.parse(xhr.responseText)
+          includeJsonLd(json, 'xhr')
+        }
+      }
+      xhr.open('GET', 'data/jsonld.json', true)
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+      xhr.overrideMimeType('application/json, text/javascript')
+      xhr.send(null)
+    </script>
+  </body>
+</html>
