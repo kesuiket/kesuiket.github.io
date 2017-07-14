@@ -8,17 +8,18 @@
   </head>
   <body>
     JSON-LD の読み込みテスト(ajax)
-
     <script>
       $.ajax({
         url: 'data/jsonld.json',
         type: 'get',
         dataType: 'json',
       }).then(function(json, xhr) {
+        const ref = document.querySelector('script')
         const s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
-        document.body.appendChild(s)  
+        ref.parentNode.insertBefore(s, ref)
+        // document.body.appendChild(s)
       })
     </script>
   </body>
