@@ -10,16 +10,17 @@
     JSON-LD の読み込みテスト(同期)
 
     <script>
-    const schema = {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "Wicked Pizza"
-    }
-    const ref = document.querySelector('script')
-    const s = document.createElement('script')
-    s.type = 'application/ld+json'
-    s.textContent = JSON.stringify(schema)
-    ref.parentNode.insertBefore(s, ref)
+      const schema = {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Wicked Pizza"
+      }
+      const ref = document.querySelector('script')
+      const s = document.createElement('script')
+      s.type = 'application/ld+json'
+      s.textContent = JSON.stringify(schema)
+      console.log(ref, s)
+      ref.parentNode.insertBefore(s, ref)
     </script>
   </body>
 </html>
