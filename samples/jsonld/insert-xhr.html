@@ -9,21 +9,23 @@
     JSON-LD の読み込みテスト(xhr)
 
     <script>
-      const ref = document.querySelector('script')
-      const xhr = new XMLHttpRequest()
-      xhr.onload = () => {
-        const schema = JSON.parse(xhr.responseText)
-        const s = document.createElement('script')
-        s.type = 'application/ld+json'
-        s.textContent = JSON.stringify(schema)
-        console.log(ref, s)
-        ref.parentNode.insertBefore(s, ref)
-      }
-      xhr.open('GET', 'data/jsonld.json', true)
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
-      xhr.setRequestHeader('Accept', 'application/ld+json, application/json, text/javascript, */*; q=0.01');
-      xhr.withCredentials = false
-      xhr.send(null)
+      document.addEventListener('load', () => {
+        const ref = document.querySelector('script')
+        const xhr = new XMLHttpRequest()
+        xhr.onload = () => {
+          const schema = JSON.parse(xhr.responseText)
+          const s = document.createElement('script')
+          s.type = 'application/ld+json'
+          s.textContent = JSON.stringify(schema)
+          console.log(ref, s)
+          ref.parentNode.insertBefore(s, ref)
+        }
+        xhr.open('GET', 'data/jsonld.json', true)
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+        xhr.setRequestHeader('Accept', 'application/ld+json, application/json, text/javascript, */*; q=0.01');
+        xhr.withCredentials = false
+        xhr.send(null)
+      })
     </script>
   </body>
 </html>
