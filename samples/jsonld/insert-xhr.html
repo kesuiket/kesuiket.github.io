@@ -9,13 +9,15 @@
     JSON-LD の読み込みテスト(xhr)
 
     <script>
-      const xhr = new XMLHttpRequest()      
+      const xhr = new XMLHttpRequest()
+      const ref = document.getElementsByTagName('script')[0]
       xhr.onload = () => {
         const json = JSON.parse(xhr.responseText)
         const s = document.createElement('script')
         s.type = 'application/ld+json'
         s.textContent = JSON.stringify(json)
-        document.body.appendChild(s)
+        ref.parentNode.insertBefore(s, ref)
+//        document.body.appendChild(s)
       }
       xhr.open('GET', 'data/jsonld.json', true)
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
