@@ -13,7 +13,6 @@
       const s = document.createElement('script')
 
       const xhr = new XMLHttpRequest()
-      const ref = document.getElementsByTagName('script')[0]
       xhr.onload = () => {
         const schema = JSON.parse(xhr.responseText)
         s.type = 'application/ld+json'
