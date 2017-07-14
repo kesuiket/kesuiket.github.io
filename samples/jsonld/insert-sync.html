@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://kesuiket.github.io/samples/jsonld/insert.html">
+    <title>JSON-LD の読み込みテスト（script/.js）</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    JSON-LD の読み込みテスト(同期)
+
+    <script>
+    const schema = {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Wicked Pizza"
+    }
+    cosnt ref = document.querySelector('script')
+    const s = document.createElement('script')
+    s.type = 'application/ld+json'
+    s.textContent = JSON.stringify(schema)
+    ref.parentNode.insertBefore(s, ref)
+    </script>
+  </body>
+</html>
